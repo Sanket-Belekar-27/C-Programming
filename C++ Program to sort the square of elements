@@ -1,0 +1,44 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void sort(vector<int>& test,int size)
+{
+  int lp=0;
+  int rp= test.size() - 1;
+  vector<int> res;
+  while(lp<rp)
+  {
+    if(abs(test[lp])>abs(test[rp]))
+    {
+      res.push_back(test[lp]*test[lp]);
+      lp++;
+    }
+    else
+    {
+      res.push_back(test[rp]*test[rp]);
+      rp--;
+    }
+
+  }
+  cout<<"\n Sorted array : ";
+  for(int i=0;i<size;i++)
+  {
+    cout<<res[i]<<" ";
+  }
+}
+int main()
+{
+    vector<int> test;
+    int size;
+    cout<<"\n Enter size : ";
+    cin>>size;
+    cout<<"\n Enter elements : ";
+    for(int i =0;i<size;i++)
+    {
+      int element ;
+      cin>>element;
+      test.push_back(element);
+    }
+    sort(test,size);
+    return 0;
+}
