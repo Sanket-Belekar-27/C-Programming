@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool checkPreffixSuffixSum(vector<int> &v, int size) 
+{
+     int total= 0;
+    for (int i = 0; i < size; i++) 
+    {
+        total += v[i];
+    }
+    int preffix_sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+      preffix_sum += v[i];
+      int suffix_sum = total - preffix_sum;
+      if(suffix_sum = preffix_sum) 
+      {
+        return true;
+      }
+    }
+    return false;
+}
+
+int main() {
+    int size;
+    cout << "\nEnter Size :: ";
+    cin >> size;
+
+    vector<int> v;
+    cout << "\nEnter elements :: ";
+    for (int i = 0; i < size; i++) {
+        int ele;
+        cin >> ele;
+        v.push_back(ele);
+    }
+
+    if(checkPreffixSuffixSum(v, size) == 1) cout<<"\nPartition Present.";
+    else cout<<"\nPartition Absent.";
+    return 0;
+}
