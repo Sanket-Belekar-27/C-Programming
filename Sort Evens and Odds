@@ -1,0 +1,40 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void sort(vector<int>& test)
+{
+  int lp=0;
+  int rp= test.size() - 1;
+  while(lp<rp)
+  {
+    if(test[lp] % 2 == 1 && test[rp] % 2 == 0)
+    {
+      swap(test[lp],test[rp]);
+      lp++;
+      rp--;
+    }
+    if(test[lp] % 2 == 0) lp++;
+    if(test[rp] % 2 == 1) rp--;
+  }
+}
+int main()
+{
+    vector<int> test;
+    int size;
+    cout<<"\n Enter size : ";
+    cin>>size;
+    cout<<"\n Sorted elements : ";
+    for(int i =0;i<size;i++)
+    {
+      int element ;
+      cin>>element;
+      test.push_back(element);
+    }
+    sort(test);
+    cout<<"\n Enter elements : ";
+    for(int i =0;i<size;i++)
+    {
+      cout<<test[i] << "  ";
+    }
+    return 0;
+}
