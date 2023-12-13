@@ -1,0 +1,47 @@
+#include<iostream> using namespace std; int power(int m,int n)
+
+{
+
+if(n==0) return 1;
+
+if(n == 1) return m;
+
+int ans;
+
+if(n%2==0)
+
+{
+
+ans = power(m,n/2);
+
+return ans*ans;
+
+}
+
+else
+
+{
+
+ans = m* power(m,(n-1)/2); return ans*ans;
+
+}
+
+}
+
+int main()
+
+{
+
+int m, n;
+
+cout << "\nEnter the base :: ";
+
+cin>>m;
+
+cout << "\nEnter the exponent (+ve):: "; cin>>n;
+
+cout<<power(m,n);
+
+return 0;
+
+}
